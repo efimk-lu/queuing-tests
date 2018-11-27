@@ -1,0 +1,23 @@
+service: queing-testing
+
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: us-east-1
+
+  iamRoleStatements:
+    # Allow the lambdas to invoke other lambdas, and to interact with DynamoDB
+    - Effect: "Allow"
+      Action:
+        - sqs:ChangeMessageVisibility
+        - lambda:InvokeAsync
+        - sqs:DeleteMessage
+        - sqs:GetQueueAttributes
+        - sqs:ReceiveMessage
+      Resource:
+        - "*"
+
+functions:
+  sqs-test:
+    handler: src/lambdas/sqs-handler.handler

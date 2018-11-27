@@ -1,0 +1,19 @@
+{
+  "name": "queing-testing",
+  "version": "1.0.0",
+  "description": "Contains various lambdas to test queuing performance.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "SQS",
+    "Kinesis",
+    "Lumigo"
+  ],
+  "devDependencies": {
+    "node-fetch": "^2.3.0",
+    "prettier": "^1.15.2"
+  },
+  "author": "Efi Merdler-Kravitz",
+  "license": "ISC"
+}
