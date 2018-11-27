@@ -3,6 +3,7 @@ service: queing-testing
 
 provider:
   name: aws
+  memory: 256
   runtime: nodejs8.10
   region: us-east-1
 

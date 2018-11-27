@@ -11,6 +11,6 @@ module.exports.handler = async (event, context) => {
         attributes.SentTimestamp}`
     );
   });
-  await sleep(100);
+  await sleep(1500);
   return { code: 200 };
 };
