@@ -1,3 +1,7 @@
+const { promisify } = require("util");
+
+const sleep = promisify(setTimeout);
+
 module.exports.handler = async (event, context) => {
   event.Records.forEach(record => {
     const { body, attributes } = record;
@@ -6,6 +10,7 @@ module.exports.handler = async (event, context) => {
       `${attributes.SentTimestamp - message.sentTime},${Date.now() -
         attributes.SentTimestamp}`
     );
-    return { code: 200 };
   });
+  await sleep(100);
+  return { code: 200 };
 };
