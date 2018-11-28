@@ -1,6 +1,5 @@
 service: queing-testing
 
-
 provider:
   name: aws
   memory: 256
@@ -16,9 +15,18 @@ provider:
         - sqs:DeleteMessage
         - sqs:GetQueueAttributes
         - sqs:ReceiveMessage
+        - kinesis:DescribeStream
+        - kinesis:DescribeStreamSummary
+        - kinesis:GetRecords
+        - kinesis:GetShardIterator
+        - kinesis:ListShards
+        - kinesis:ListStreams
+        - kinesis:SubscribeToShard
       Resource:
         - "*"
 
 functions:
   sqs-test:
     handler: src/lambdas/sqs-handler.handler
+  kinesis-test:
+    handler: src/lambdas/kinesis-handler.handler
