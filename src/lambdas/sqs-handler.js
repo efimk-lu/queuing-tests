@@ -6,6 +6,7 @@ module.exports.handler = async (event, context) => {
   event.Records.forEach(record => {
     const { body, attributes } = record;
     let message = JSON.parse(body);
+    console.info("Message received");
     console.info(
       `inLatency=${attributes.SentTimestamp - message.sentTime}, outLatency=${Date.now() -
         attributes.SentTimestamp}`
